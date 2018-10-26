@@ -39,7 +39,6 @@ public class TransportDataThread extends Thread {
         }
 
         // 参数
-
         Map map = new HashMap();
         map.put("paramNames", new String[]{"xmlLocationInfoOfSupplier", "operationType", "credentials"});
         Properties wsp = PropertiesUtil.getPropertiesByType(WHICH_PROP);
