@@ -6,13 +6,8 @@ import org.apache.axis.message.SOAPHeaderElement;
 
 import javax.xml.namespace.QName;
 import javax.xml.rpc.ParameterMode;
-import javax.xml.rpc.ServiceException;
 import javax.xml.rpc.encoding.XMLType;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.rmi.RemoteException;
 import java.util.Map;
 import java.util.Properties;
 
@@ -69,12 +64,9 @@ public class DataTransportUtil {
             call.setSOAPActionURI(webServicesNameSpace + wsMethodName);
             Object result = call.invoke(params);
             System.out.println(result);
-        } catch (ServiceException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (RemoteException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         } finally {
         }
     }
